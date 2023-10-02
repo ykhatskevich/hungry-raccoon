@@ -13,7 +13,7 @@ const handleSearch = async () => {
     return;
 }
 
-const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=dd43f7faf0084a4580fb83983dabc493&query=${searchQuery}&number=5`;
+const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=14cbf30851114c3f9f6a2a906916cd22&query=${searchQuery}&number=5`;
 try {
   const response = await fetch(
     apiUrl
@@ -22,8 +22,6 @@ try {
   if (response.ok) {
     const data = await response.json();
     console.log(data);
-
-    // Check if 'recipes' array exists and has at least one element
     if (data.results && data.results.length > 0) {
       const firstRecipe = data.results[0]; 
       const recipeId = firstRecipe.id;
@@ -55,7 +53,7 @@ try {
           className="w-full  border-2 border-purple-300 rounded-md p-2"
           onChange={((e) => setSearchQuery(e.target.value))}
         />
-        <button className="bg-cyan-800 px-4 py-2 rounded-lg text-xl text-purple-100 font-semibold  transform hover:scale-105 hover:bg-black transition-transform duration-300 ease-in-out"
+        <button className="bg-purple-800 text-white text-xl p-3 shadow-lg rounded-lg hover:bg-purple-900"
         onClick={handleSearch}>
           Search
         </button>

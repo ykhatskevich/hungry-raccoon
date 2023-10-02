@@ -1,5 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
+import BackToHomeBtn from "../components/BackToHome-btn";
+
 import { RecipeDetails } from "../types";
 import { ExtendedIngredient } from "../types";
 // Import the type definition
@@ -9,13 +12,14 @@ export default function RecipePage() {
   const [recipeDetails, setRecipeDetails] = useState<RecipeDetails | null>(
     null
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchRecipeDetails() {
       try {
         
         const apiUrl = await fetch(
-          `https://api.spoonacular.com/recipes/${id}/information?apiKey=dd43f7faf0084a4580fb83983dabc493`
+          `https://api.spoonacular.com/recipes/${id}/information?apiKey=14cbf30851114c3f9f6a2a906916cd22`
         );
         const data = await apiUrl.json();
         console.log(data);
@@ -47,11 +51,12 @@ export default function RecipePage() {
         className="rounded-lg shadow-md"
       />
       <h1
-        className="text-3xl text-fuchsia-900 font-semibold mt-3 mb-4"
-        style={{ fontFamily: "Lilita One" }}
+        className="text-3xl text-stone-900 font-semibold mt-3 mb-4"
+        style={{ fontFamily: "Dosis, sans-serif" }}
       >
         {recipeDetails.title}
       </h1>
+      <BackToHomeBtn/>
       <h3 className="text-xl">
         Ready in minutes:{" "}
         <span className="font-semibold">{recipeDetails.readyInMinutes}</span>
@@ -66,7 +71,7 @@ export default function RecipePage() {
           {recipeDetails.extendedIngredients.map(
             (ingredient: ExtendedIngredient) => (
               <tr
-                className="p-2 border-b border-fuchsia-400"
+                className="p-2 border-b border-gray-400"
                 key={ingredient.id}
               >
                 <td>{ingredient.original.toLowerCase()}</td>
@@ -76,7 +81,7 @@ export default function RecipePage() {
         </tbody>
       </table>
       <h3 className="text-xl">Instructions:</h3>
-      <div className="bg-white m-5 p-3 max-w-lg shadow-lg rounded-lg">
+      <div className="bg-fuchsia-100 m-5 p-3 max-w-lg shadow-lg rounded-lg">
         <p>{removeHtmlTags(recipeDetails.instructions)}</p>
       </div>
       <h3 className="text-xl">Summary:</h3>

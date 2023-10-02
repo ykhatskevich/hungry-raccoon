@@ -37,8 +37,8 @@ export default function PopularRecipes({ popularRecipes }: PopularRecipesProps) 
   return (
     <div className="text-center">
       <h1
-        style={{ fontFamily: "Lilita One" }}
-        className="text-2xl text-fuchsia-900 font-semibold mb-3"
+        style={{ fontFamily: "Dosis, sans-serif" }}
+        className="text-2xl text-stone-900 font-semibold mb-3"
       >
         Our Popular Recipes
       </h1>

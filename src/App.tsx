@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import RecipePage from './pages/RecipePage';
+import ItalianCuisine from './pages/ItalianCuisine';
+import AmericanCuisine from './pages/AmericanCuisine';
+import JapaneseCuisine from './pages/JapaneseCuisine';
+import IndianCuisine from './pages/IndianCuisine';
+import VietnameseCuisine from './pages/VietnameseCuisine';
 import { Recipe } from './types';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -14,7 +19,7 @@ function App() {
       try {
         const apiKey = process.env.API_KEY;
         const apiUrl = await fetch(
-          `https://api.spoonacular.com/recipes/random?apiKey=dd43f7faf0084a4580fb83983dabc493&number=16`
+          `https://api.spoonacular.com/recipes/random?apiKey=14cbf30851114c3f9f6a2a906916cd22&number=16`
         );
         const data = await apiUrl.json();
         console.log(data);
@@ -35,6 +40,12 @@ function App() {
             <Route path="/" element={<HomePage popularRecipes={popularRecipes} />} />
           )}
           <Route path="/recipe/:id" element={<RecipePage />} />
+          <Route path="/cuisine/Italian" element={<ItalianCuisine />} />
+          <Route path="/cuisine/American" element={<AmericanCuisine />} />
+          <Route path="/cuisine/Japanese" element={<JapaneseCuisine />} />
+          <Route path="/cuisine/Indian" element={<IndianCuisine />} />
+          <Route path="/cuisine/Vietnamese" element={<VietnameseCuisine />} />
+
         </Routes>
       </BrowserRouter>
     </div>
