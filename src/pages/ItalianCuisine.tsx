@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeCard from "../components/RecipeCard";
 import BackToHomeBtn from "../components/BackToHome-btn";
+import {Link} from 'react-router-dom';
 import {Recipe} from '../types';
 
 export default function ItalianCuisine() {
@@ -40,10 +41,9 @@ export default function ItalianCuisine() {
 
   return (
     <div className="text-left p-4" style={{ fontFamily: "Dosis, sans-serif" }}>
-      <h1 className="text-4xl font-bold">Italian Cuisine</h1>
-      <h2 className="text-2xl font-semibold mt-4">
-        A Culinary Journey to Italy
-      </h2>
+      <h1 className="text-4xl font-bold mt-3">Italian Cuisine</h1>
+      <h2 className="text-2xl font-semibold mt-2 mb-2">
+      A Symphony of Flavors from the Mediterranean      </h2>
       <BackToHomeBtn/>
       <div className="mt-6 p-4">
         <img
@@ -88,9 +88,9 @@ export default function ItalianCuisine() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
           {italianRecipes.map((recipe) => (
-           <div key={recipe.id} className="bg-white rounded-lg shadow-md p-4 w-72 h-72 cursor-pointer">
-           {/* Maintain a square aspect ratio */}
-           <img
+           <div key={recipe.id} className="bg-white rounded-lg shadow-md p-4 w-full md:w-72 cursor-pointer">
+            <Link to={`/recipe/${recipe.id}`}>
+            <img
              src={recipe.image}
              alt={recipe.title}
              className="w-auto h-48 object-cover rounded-md mx-auto" // Adjust the height here
@@ -98,6 +98,8 @@ export default function ItalianCuisine() {
            <h3 className="font-semibold mt-4 mb-2 truncate hover:text-clip">
              {recipe.title}
            </h3>
+            </Link>
+           
          </div>
           ))}
         </div>

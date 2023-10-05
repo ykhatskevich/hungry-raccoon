@@ -15,6 +15,9 @@ export interface Recipe {
     summary: string;
     instructions:string;
     license: string;
+    winePairing: {
+      pairingText: string;
+    };
     extendedIngredients: ExtendedIngredient[];
   }
 

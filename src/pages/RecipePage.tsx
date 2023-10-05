@@ -57,14 +57,19 @@ export default function RecipePage() {
         {recipeDetails.title}
       </h1>
       <BackToHomeBtn/>
-      <h3 className="text-xl">
-        Ready in minutes:{" "}
-        <span className="font-semibold">{recipeDetails.readyInMinutes}</span>
-      </h3>
+      
       <h3 className="text-xl">
         Servings:{" "}
         <span className="font-semibold">{recipeDetails.servings}</span>
       </h3>
+      <h3 className="text-xl mt-2">Wine Pairing: </h3>
+<div className="p-3 max-w-screen-lg">
+  <p>{recipeDetails.winePairing.pairingText}</p>
+</div>
+
+  
+        
+     
       <h3 className="text-xl">Ingredients:</h3>
       <table className="m-5">
         <tbody>
@@ -91,3 +96,5 @@ export default function RecipePage() {
     </div>
   );
 }
+
+
