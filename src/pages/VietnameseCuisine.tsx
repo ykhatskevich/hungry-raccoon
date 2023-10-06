@@ -36,28 +36,29 @@ export default function VietnameseCuisine () {
 
     return (
         <div className="text-left p-4" style={{ fontFamily: "Dosis, sans-serif" }}>
-        <h1 className="text-4xl font-bold mt-3">Japanese Cuisine</h1>
+        <h1 className="text-4xl font-bold mt-3">Vietnamese Cuisine</h1>
         <h2 className="text-2xl font-semibold mt-2 mb-2">
         Harmony in Flavor and Tradition
         </h2>
         <BackToHomeBtn/>
         <div className="mt-6 p-4">
           <img
-            src="/images/salmon.jpg"
+            src="/images/banh.jpg"
             alt="Vietnamese"
             width="300"
             height="auto"
             className="rounded-lg float-left mr-4"
           />
           <p className="text-lg">
-          Japanese cuisine is a culinary art form that embodies the principles of balance, simplicity, and an unwavering respect for tradition. With a history dating back centuries, Japanese food has become internationally renowned for its unique characteristics.
-          Japanese cuisine is celebrated for its ability to masterfully balance the five basic tastes, with a special emphasis on umami, the savory and deeply satisfying flavor. Ingredients like miso, soy sauce, and seaweed contribute to this rich taste profile.
-          The Japanese have a profound appreciation for seasonal ingredients. Menus change with the seasons to showcase the freshest, locally sourced produce, ensuring that each dish is at its peak flavor.
+          Vietnamese cuisine is a culinary masterpiece that weaves together a tapestry of flavors, rooted in tradition and celebrated for its exquisite balance. With a rich history that spans generations, Vietnamese food has captivated taste buds worldwide with its distinctive qualities.
+
+At the heart of Vietnamese cuisine is the artful harmony of flavors, encompassing the five fundamental tastes, where the delicate balance of sweet, sour, bitter, salty, and umami reigns supreme. Key ingredients like fish sauce, fresh herbs, and a medley of spices contribute to this harmonious flavor profile.
           </p>
   
           <p className="text-lg">
-          Japan's most iconic dishes, sushi and sashimi, highlight the art of minimalism. Delicate slices of raw fish or seafood, served atop vinegared rice or alone, emphasize the importance of pure, unadulterated flavors.
-          The mastery of cooking techniques like tempura (deep-frying) and teriyaki (grilling with a glaze) adds depth and variety to Japanese cuisine. These methods are known for their ability to enhance the natural essence of ingredients.
+          Vietnamese culinary tradition is deeply intertwined with the seasons. Menus ebb and flow with nature's rhythm, showcasing the bounty of each season's locally sourced produce. This commitment to freshness ensures that every dish bursts with vibrant and peak-season flavors.
+
+Among Vietnam's most iconic dishes, pho stands out as a shining example of culinary minimalism. This aromatic noodle soup, adorned with tender slices of beef or chicken, highlights the elegance of simplicity, allowing the pure essence of each ingredient to shine.
           </p>
   
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
