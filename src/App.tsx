@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import RecipePage from './pages/RecipePage';
-import ItalianCuisine from './pages/ItalianCuisine';
 import AmericanCuisine from './pages/AmericanCuisine';
 import JapaneseCuisine from './pages/JapaneseCuisine';
 import IndianCuisine from './pages/IndianCuisine';
 import VietnameseCuisine from './pages/VietnameseCuisine';
+import CuisinePage from './pages/CusinePage';
+import './index.css';
 import { Recipe } from './types';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -40,7 +41,7 @@ function App() {
             <Route path="/" element={<HomePage popularRecipes={popularRecipes} />} />
           )}
           <Route path="/recipe/:id" element={<RecipePage />} />
-          <Route path="/cuisine/Italian" element={<ItalianCuisine />} />
+          <Route path="/cuisine/:cuisineName" element={<CuisinePage />} />
           <Route path="/cuisine/American" element={<AmericanCuisine />} />
           <Route path="/cuisine/Japanese" element={<JapaneseCuisine />} />
           <Route path="/cuisine/Indian" element={<IndianCuisine />} />
