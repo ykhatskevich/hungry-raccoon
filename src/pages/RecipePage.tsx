@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
-import BackToHomeBtn from "../components/BackToHome-btn";
+import Button from "../components/Button";
 
 import { RecipeDetails } from "../types";
 import { ExtendedIngredient } from "../types";
-// Import the type definition
 
 export default function RecipePage() {
   const { id } = useParams();
@@ -30,9 +29,9 @@ export default function RecipePage() {
     }
 
     fetchRecipeDetails();
-  }, [id]); // Fetch recipe details whenever the ID changes
+  }, [id]); 
 
-  // Check if recipeDetails is still null (loading)
+
   if (recipeDetails === null) {
     return <div>Loading...</div>;
   }
@@ -56,8 +55,7 @@ export default function RecipePage() {
       >
         {recipeDetails.title}
       </h1>
-      <BackToHomeBtn/>
-      
+      <Button label="Back to Home Page" onClick={()=> navigate('/')}></Button>
       <h3 className="text-xl">
         Servings:{" "}
         <span className="font-semibold">{recipeDetails.servings}</span>

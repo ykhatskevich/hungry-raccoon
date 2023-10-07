@@ -15,7 +15,7 @@ export default function HomePage ({ popularRecipes }: { popularRecipes: Recipe[]
             <div className="flex-none mb-5"> {/* Added some bottom margin to push the content below a bit */}
                 <Logo />
             </div>
-            <div className="flex-grow flex flex-col justify-center items-center"> {/* Changed to justify-center */}
+            <div className="flex-grow flex flex-col justify-center items-center mt-20"> {/* Changed to justify-center */}
                 <div className="mb-8"> {/* Increased the bottom margin for a bit more spacing */}
                     <SearchBar />
                 </div>

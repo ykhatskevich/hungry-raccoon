@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard'; // Note: You haven't used RecipeCard in this component.
-import BackToHomeBtn from "../components/BackToHome-btn";
+import Button from '../components/Button';
 import { Recipe } from '../types';
 import { cuisinesConfig } from '../cuisinesConfig';
 
@@ -45,7 +45,10 @@ export default function CuisinePage() {
         <div className="text-left p-4" style={{ fontFamily: "Dosis, sans-serif" }}>
         <h1 className="text-4xl font-bold mt-3">{currentCuisine.displayName}</h1>
         <h2 className="text-2xl font-semibold mt-2 mb-2">{currentCuisine.tagline}</h2>
-        <BackToHomeBtn />
+        <Button 
+    label="Back to Home Page" 
+    onClick={() => navigate('/')} // assuming root ('/') is your homepage route.
+/>
         <div className="mt-6 p-4">
             <img src={currentCuisine.image} alt={cuisineName} width="300" height="auto" className="rounded-lg float-left mr-4" />
             <p className="text-lg">{currentCuisine.description1}</p>

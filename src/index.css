@@ -28,7 +28,7 @@
 
 .carousel-container {
     /* Adjust these styles as necessary */
-    width: 1030px;  /* width of 4 recipe cards */
+    width: 1024px;  /* width of 4 recipe cards */
     overflow: hidden;
     height: 300px;
    
@@ -45,6 +45,7 @@
 }
   
   .recipe-card-container {
+    box-sizing:border-box;
     width: calc(25% - 12px);  
     height: auto;
     padding: 0 ;
