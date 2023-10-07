@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 
 
@@ -52,10 +53,7 @@ try {
           className="w-full border-2 border-purple-300 rounded-full p-3 pl-5 transition-transform transform focus:scale-105 focus:shadow-lg focus:border-purple-500"
           onChange={((e) => setSearchQuery(e.target.value))}
         />
-        <button className="pulse bg-purple-800 text-white text-xl px-6 py-2 ml-3 shadow-lg rounded-full hover:bg-purple-900"
-        onClick={handleSearch}>
-          Search
-        </button>
+        <Button label="Search" onClick={handleSearch}></Button>
       </div>
     </div>
   );
