@@ -8,61 +8,50 @@ interface PopularRecipesProps {
 }
 
 export default function PopularRecipes({ popularRecipes }: PopularRecipesProps) {
-  const [currentSet, setCurrentSet] = useState(1);
+    const [currentSet, setCurrentSet] = useState(1);
+    const recipesPerPage = 4;
+    const totalSets = Math.ceil(popularRecipes.length / recipesPerPage);
 
-  const recipesPerPage = 4;
+    const cardWidth = 250; // Adjust this to the actual width of your card in pixels.
+    const spacing = 12; // Spacing between cards
+    const totalCardWidth = cardWidth + spacing;
+    const visibleWidth = totalCardWidth * recipesPerPage - spacing; // Subtract one spacing as it's not needed for the last card in view
 
-  const startIndex = (currentSet - 1) * recipesPerPage;
-  const endIndex = startIndex + recipesPerPage;
-  const recipesToDisplay = popularRecipes.slice(startIndex, endIndex);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSet(prevSet => (prevSet < totalSets ? prevSet + 1 : 1));
+        }, 5000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, [totalSets]);
 
-  const handleLeftArrowClick = () => {
-    const newIndex =
-      currentSet > 1
-        ? currentSet - 1
-        : Math.ceil(popularRecipes.length / recipesPerPage);
+    const transformValue = -(currentSet - 1) * 100;
 
-    setCurrentSet(newIndex);
-  };
-
-  const handleRightArrowClick = () => {
-    const newIndex =
-      currentSet < Math.ceil(popularRecipes.length / recipesPerPage)
-        ? currentSet + 1
-        : 1;
-
-    setCurrentSet(newIndex);
-  };
-
-  return (
-    <div className="text-center">
-      <h1
-        style={{ fontFamily: "Dosis, sans-serif" }}
-        className="text-2xl text-stone-900 font-semibold mb-3"
-      >
-        Our Popular Recipes
-      </h1>
-      <div className="flex items-center justify-center">
-        <img
-          onClick={handleLeftArrowClick}
-          src="../images/arrow slider left.png"
-          alt="arrow left"
-          className="w-10 h-10 cursor-pointer transform hover:scale-125 transition-transform duration-300 ease-in-out"
-        />
-        <div className="flex flex-wrap justify-center gap-3 min-w-4xl">
-          {recipesToDisplay.map((recipe: Recipe) => (
-            <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
-              <RecipeCard recipe={recipe} />
-            </Link>
-          ))}
+    return (
+        <div className="text-center">
+            <h1
+                style={{ fontFamily: "Dosis, sans-serif" }}
+                className="text-2xl text-stone-900 font-semibold mb-3"
+            >
+                Our Popular Recipes
+            </h1>
+            <div className="flex justify-center items-center w-full">
+                <div className="carousel-container relative overflow-hidden" style={{ width: `${visibleWidth}px` }}>
+                    <div 
+                        className="carousel-content flex" 
+                        style={{ transform: `translateX(${transformValue}%)` }}
+                    >
+                        {popularRecipes.map((recipe: Recipe) => (
+                            <div className="recipe-card-container" key={recipe.id} style={{ width: `${cardWidth}px` }}>
+                                <Link to={`/recipe/${recipe.id}`}>
+                                    <RecipeCard recipe={recipe} />
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
-        <img
-          onClick={handleRightArrowClick}
-          src="../images/arrow slider right.png"
-          alt="arrow right"
-          className="w-10 h-10 cursor-pointer transform hover:scale-125 transition-transform duration-300 ease-in-out"
-        />
-      </div>
-    </div>
-  );
+    );
 }

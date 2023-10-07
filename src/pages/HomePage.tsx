@@ -23,7 +23,7 @@ export default function HomePage ({ popularRecipes }: { popularRecipes: Recipe[]
                     <CuisineList />
                 </div>
             </div>
-            <div className="flex-none mb-9">
+            <div className="flex-grow mb-9">
                 <PopularRecipes popularRecipes={popularRecipes}/>
             </div>
         </div>
