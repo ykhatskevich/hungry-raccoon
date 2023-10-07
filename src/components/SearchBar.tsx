@@ -2,15 +2,18 @@ import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
+type SearchBarProps = {
+  setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>;
+}
 
 
-
-export default function SearchBar() {
+const SearchBar: React.FC<SearchBarProps> = ({ setErrorMessage }) => {
 const [searchQuery, setSearchQuery] = useState("");
 const navigate = useNavigate();
 
 const handleSearch = async () => {
   if(searchQuery.trim() === "") {
+    setErrorMessage("Please enter a name of the recipe");
     return;
 }
 
@@ -27,15 +30,19 @@ try {
       const firstRecipe = data.results[0]; 
       const recipeId = firstRecipe.id;
 
+      setErrorMessage(null);
+
       navigate(`/recipe/${recipeId}`);
     } else {
-      console.error('No recipes found');
+      setErrorMessage("Oops... no recipes found. Please try with a different recipe");
+
     }
   } else {
-    console.error('Failed to fetch recipes');
+    setErrorMessage("Oops... something went wrong. Please try again.");
   }
 } catch (error) {
   console.error('Error during search:', error);
+  setErrorMessage("Oops... something went wrong. Please try again.");
 }
 };
 
@@ -58,3 +65,6 @@ try {
     </div>
   );
 }
+
+
+export default SearchBar;
