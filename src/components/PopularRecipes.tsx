@@ -37,7 +37,8 @@ export default function PopularRecipes({ popularRecipes }: PopularRecipesProps) 
                 Our Popular Recipes
             </h1>
             <div className="flex justify-center items-center w-full">
-                <div className="carousel-container relative overflow-hidden" style={{ width: `${visibleWidth}px` }}>
+                {/* Desktop view */}
+                <div className="carousel-container relative overflow-hidden hidden sm:block" style={{ width: `${visibleWidth}px` }}>
                     <div 
                         className="carousel-content flex" 
                         style={{ transform: `translateX(${transformValue}%)` }}
@@ -50,6 +51,16 @@ export default function PopularRecipes({ popularRecipes }: PopularRecipesProps) 
                             </div>
                         ))}
                     </div>
+                </div>
+                {/* Mobile view */}
+                <div className="sm:hidden">
+                    {popularRecipes.map((recipe: Recipe) => (
+                        <div key={recipe.id} className="mb-10 last:mb-0">
+                        <Link to={`/recipe/${recipe.id}`} >
+                            <RecipeCard recipe={recipe}  />
+                        </Link>
+                    </div>
+                    ))}
                 </div>
             </div>
         </div>

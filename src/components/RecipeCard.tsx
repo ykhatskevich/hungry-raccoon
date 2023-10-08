@@ -3,9 +3,10 @@ import { Recipe } from "../types";
 
 interface RecipeCardProps {
   recipe: Recipe;
+
 }
 
-const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
+const RecipeCard: React.FC<RecipeCardProps> = ({ recipe}) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-2 m-1 w-48 cursor-pointer">
       <img src={recipe.image} alt={recipe.title} className="w-48 h-auto rounded-md" />

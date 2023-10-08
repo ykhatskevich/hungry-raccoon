@@ -38,7 +38,7 @@ export const cuisinesConfig = [
 
     {
         name: 'vietnamese',
-        displayName: 'American Cuisine',
+        displayName: 'Vietnamese Cuisine',
         tagline: 'Harmony in Flavor and Tradition',
         image: '/images/banh.jpg',
         description1: "Vietnamese cuisine is a culinary masterpiece that weaves together a tapestry of flavors, rooted in tradition and celebrated for its exquisite balance. With a rich history that spans generations, Vietnamese food has captivated taste buds worldwide with its distinctive qualities. At the heart of Vietnamese cuisine is the artful harmony of flavors, encompassing the five fundamental tastes, where the delicate balance of sweet, sour, bitter, salty, and umami reigns supreme. Key ingredients like fish sauce, fresh herbs, and a medley of spices contribute to this harmonious flavor profile.",       

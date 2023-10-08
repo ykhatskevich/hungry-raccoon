@@ -26,7 +26,6 @@ export default function HomePage({
         
         <Logo />
       </div>
-      {/* <div className="flex-grow flex flex-col justify-center items-center mt-20 md:mt-10 sm:mt-5"> */}
       <div className="flex-grow flex flex-col justify-center items-center mt-5 sm:mt-20 md:mt-10">
 
         
