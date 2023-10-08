@@ -56,8 +56,8 @@ try {
         <input
           type="text"
           placeholder="Search for recipes (e.g. Colcannon)"
-          style={{ width: "500px" }}
-          className="w-full border-2 border-purple-300 rounded-full p-3 pl-5 transition-transform transform focus:scale-105 focus:shadow-lg focus:border-purple-500"
+          // style={{ width: "500px" }}
+          className="lg:w-[500px] sm:w-96 border-2 border-purple-300 rounded-full p-3 pl-5 transition-transform transform focus:scale-105 focus:shadow-lg focus:border-purple-500"
           onChange={((e) => setSearchQuery(e.target.value))}
         />
         <Button label="Search" onClick={handleSearch}></Button>
