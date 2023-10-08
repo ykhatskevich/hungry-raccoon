@@ -24,12 +24,10 @@ export default function HomePage({
     <div className="flex flex-col h-screen bg-gray-200 gap-4">
       <div className="flex-none mb-5">
         {" "}
-        {/* Added some bottom margin to push the content below a bit */}
         <Logo />
       </div>
       <div className="flex-grow flex flex-col justify-center items-center mt-20 md:mt-30">
         {" "}
-        {/* Changed to justify-center */}
         <div className="mb-3">
           {" "}
           <SearchBar setErrorMessage={setErrorMessage} />
@@ -41,7 +39,13 @@ export default function HomePage({
                     animate="visible"
                     variants={fadeIn}
                     transition={{ duration: 0.7 }}
-                    className="bg-red-100 text-red-700 p-2 rounded mt-4">
+                    className="bg-red-100 text-red-700 p-3 rounded mt-4 relative">
+                      <button 
+                className="absolute top-1 right-0.5 text-lg focus:outline-none"
+                onClick={() => setErrorMessage(null)}
+              >
+                ×
+              </button>
                     {errorMessage}
                 </motion.div>
             }

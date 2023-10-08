@@ -20,18 +20,18 @@ function App() {
         const data = await apiUrl.json();
         console.log(data);
         setPopularRecipes(data.recipes);
-        setIsLoading(false); // Set isLoading to false when data is loaded
+        setIsLoading(false); 
       } catch (error) {
         console.error('Error fetching recipes:', error);
       }
     })();
-  }, []); // The empty dependency array ensures this effect runs only once
+  }, []); 
 
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          {/* Conditionally render HomePage only when recipes data is available */}
+        
           {!isLoading && (
             <Route path="/" element={<HomePage popularRecipes={popularRecipes} />} />
           )}

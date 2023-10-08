@@ -12,8 +12,8 @@ export default function PopularRecipes({ popularRecipes }: PopularRecipesProps) 
     const recipesPerPage = 4;
     const totalSets = Math.ceil(popularRecipes.length / recipesPerPage);
 
-    const cardWidth = 250; // Adjust this to the actual width of your card in pixels.
-    const spacing = 12; // Spacing between cards
+    const cardWidth = 250; 
+    const spacing = 12; 
     const totalCardWidth = cardWidth + spacing;
     const visibleWidth = totalCardWidth * recipesPerPage - spacing; // Subtract one spacing as it's not needed for the last card in view
 

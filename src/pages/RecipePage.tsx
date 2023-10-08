@@ -22,7 +22,7 @@ export default function RecipePage() {
         );
         const data = await apiUrl.json();
         console.log(data);
-        setRecipeDetails(data); // Set the fetched recipe details in state
+        setRecipeDetails(data); 
       } catch (error) {
         console.error("Error fetching recipe details:", error);
       }
@@ -56,11 +56,11 @@ export default function RecipePage() {
         {recipeDetails.title}
       </h1>
       <Button label="Back to Home Page" onClick={()=> navigate('/')}></Button>
-      <h3 className="text-xl">
+      <h3 className="text-xl mt-4 font-semibold">
         Servings:{" "}
         <span className="font-semibold">{recipeDetails.servings}</span>
       </h3>
-      <h3 className="text-xl mt-2">Wine Pairing: </h3>
+      <h3 className="text-xl mt-2 font-semibold">Wine Pairing: </h3>
 <div className="p-3 max-w-screen-lg">
   <p>{recipeDetails.winePairing.pairingText}</p>
 </div>
@@ -68,8 +68,8 @@ export default function RecipePage() {
   
         
      
-      <h3 className="text-xl">Ingredients:</h3>
-      <table className="m-5">
+      <h3 className="text-xl font-semibold">Ingredients:</h3>
+      <table className="m-5 border-collapse">
         <tbody>
           {recipeDetails.extendedIngredients.map(
             (ingredient: ExtendedIngredient) => (
@@ -77,17 +77,17 @@ export default function RecipePage() {
                 className="p-2 border-b border-gray-400"
                 key={ingredient.id}
               >
-                <td>{ingredient.original.toLowerCase()}</td>
+                <td className="p-2 border border-gray-400">{ingredient.original.toLowerCase()}</td>
               </tr>
             )
           )}
         </tbody>
       </table>
-      <h3 className="text-xl">Instructions:</h3>
-      <div className="bg-fuchsia-100 m-5 p-3 max-w-lg shadow-lg rounded-lg">
-        <p>{removeHtmlTags(recipeDetails.instructions)}</p>
+      <h3 className="text-xl font-semibold text-justify">Instructions:</h3>
+      <div className="bg-cyan-50 m-5 p-5 max-w-lg shadow-lg rounded-lg">
+        <p className="text-justify">{removeHtmlTags(recipeDetails.instructions)}</p>
       </div>
-      <h3 className="text-xl">Summary:</h3>
+      <h3 className="text-xl font-semibold">Summary:</h3>
       <div className="p-3 max-w-screen-lg">
         <p>{removeHtmlTags(recipeDetails.summary)}</p>
       </div>
