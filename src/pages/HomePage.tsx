@@ -22,15 +22,16 @@ export default function HomePage({
 
   return (
     <div className="flex flex-col h-screen bg-gray-200 gap-4">
-      <div className="flex-none mb-5 sm:mb-10">
-        {" "}
+      <div className="flex-none mb-3 sm:mb-10">
+        
         <Logo />
       </div>
-      <div className="flex-grow flex flex-col justify-center items-center mt-20 md:mt-30">
+      {/* <div className="flex-grow flex flex-col justify-center items-center mt-20 md:mt-10 sm:mt-5"> */}
+      <div className="flex-grow flex flex-col justify-center items-center mt-5 sm:mt-20 md:mt-10">
 
-        {" "}
+        
         <div className="mb-3">
-          {" "}
+          
           <SearchBar setErrorMessage={setErrorMessage} />
         </div>
         <div className="h-[40px] mb-3">
