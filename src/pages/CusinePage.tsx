@@ -49,27 +49,33 @@ export default function CuisinePage() {
     label="Back to Home Page" 
     onClick={() => navigate('/')} 
 />
-        <div className="mt-6 p-4">
-            <img src={currentCuisine.image} alt={cuisineName} width="300" height="auto" className="rounded-lg float-left mr-4" />
-            <p className="text-lg">{currentCuisine.description1}</p>
-            <p className="text-lg">{currentCuisine.description2}</p>
+        <div className="mt-4 p-4">
+            <img src={currentCuisine.image} alt={cuisineName} width="300" height="auto" className="rounded-lg float-left mr-4 mb-1" />
+            <p className="text-lg text-justify">{currentCuisine.description1}</p>
+            <p className="text-lg text-justify">{currentCuisine.description2}</p>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-8">
+    {recipes.map((recipe) => (
+        <div key={recipe.id} className="bg-white rounded-lg shadow-md p-4 w-full md:w-72 cursor-pointer">
+            <Link to={`/recipe/${recipe.id}`}>
+                <img
+                    src={recipe.image}
+                    alt={recipe.title}
+                    className="w-auto h-48 object-cover rounded-md mx-auto" 
+                />
+                <h3 className="font-semibold mt-4 mb-2 truncate hover:text-clip">
+                    {recipe.title}
+                </h3>
+            </Link>
+        </div>
+    ))}
+</div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
-                {recipes.map((recipe) => (
-                    <div key={recipe.id} className="bg-white rounded-lg shadow-md p-4 w-full md:w-72 cursor-pointer">
-                        <Link to={`/recipe/${recipe.id}`}>
-                            <img
-                                src={recipe.image}
-                                alt={recipe.title}
-                                className="w-auto h-48 object-cover rounded-md mx-auto" 
-                            />
-                            <h3 className="font-semibold mt-4 mb-2 truncate hover:text-clip">
-                                {recipe.title}
-                            </h3>
-                        </Link>
-                    </div>
-                ))}
-            </div>
+
+
+
+
+
+           
         </div>
     </div>
     );
