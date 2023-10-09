@@ -40,7 +40,7 @@ export default function HomePage({
                     animate="visible"
                     variants={fadeIn}
                     transition={{ duration: 0.7 }}
-                    className="bg-red-100 text-red-700 p-3 rounded mt-4 relative">
+                    className="bg-red-100 text-red-700 p-3 rounded mt-1 relative">
                       <button 
                 className="absolute top-1 right-0.5 text-lg focus:outline-none"
                 onClick={() => setErrorMessage(null)}
@@ -51,11 +51,11 @@ export default function HomePage({
                 </motion.div>
             }
             </div>
-        <div className="mt-14 md:mt-4">
+        <div className="mt-3 lg:mt-14 md:mt-4 md:mb-5">
           <CuisineList />
         </div>
       </div>
-      <div className="flex-grow mb-9">
+      <div className="flex-grow mb-9 lg:mb-10">
         <PopularRecipes popularRecipes={popularRecipes} />
       </div>
     </div>
